@@ -1,4 +1,4 @@
-# Projetos/Desafios bootcamp DIO #
+# Projetos/Desafios bootcamp DIO - .NET C# #
 
 1) dio-lab-open-source -> Contribuindo em um Projeto Open Source no GitHub
 2) minimal-api -> ASP.NET Minimals APIs
