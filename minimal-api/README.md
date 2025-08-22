@@ -51,18 +51,25 @@ Este projeto é uma Minimal API desenvolvida em .NET 9, com autenticação JWT, 
 
 ## Testes de Request Automatizados
 
-Os testes de request da API são organizados na pasta `Tests/`, separados por contexto em subpastas:
+
+Os testes de request da API são organizados na pasta `Tests/`, separados por contexto em subpastas e arquivos:
 
 ```
 Tests/
-  Auth/
-	 auth.http        # Testes de autenticação/login
-	 token.http       # Geração e uso automático do token JWT
-  Usuarios/
-	 usuarios.http    # Testes de endpoints de usuário (listar, buscar, cadastrar, excluir)
-  Veiculos/
-	 veiculos.http    # Testes de endpoints de veículos
+	Auth/
+		auth.http        # Testes de autenticação/login
+	Usuarios/
+		usuarios.http    # Testes de endpoints de usuário (listar, buscar, cadastrar, excluir, atualizar, etc.)
+	Veiculos/
+		veiculos.http    # Testes de endpoints de veículos (listar, cadastrar, excluir, etc.)
 ```
+
+Cada arquivo `.http` contém exemplos de requests para os principais fluxos da API, incluindo:
+- Autenticação e obtenção de token JWT
+- Listagem, busca, cadastro, atualização e exclusão de usuários
+- Operações de veículos
+
+Os arquivos estão prontos para uso com a extensão REST Client, facilitando a automação e repetição dos testes de integração da API.
 
 Utilize a extensão [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) no VS Code para executar os arquivos `.http` e automatizar seus testes de API.
 
@@ -71,7 +78,7 @@ Utilize a extensão [REST Client](https://marketplace.visualstudio.com/items?ite
 2. Abra qualquer arquivo `.http` na pasta `Tests/`.
 3. Clique em "Send Request" acima da requisição desejada para executá-la e ver a resposta.
 4. Use variáveis como `@baseUrl` e `@token` para facilitar a reutilização de valores.
-5. O arquivo `token.http` permite capturar o token JWT automaticamente após o login e reutilizá-lo nos demais testes.
+5. Para endpoints protegidos, obtenha o token JWT via login (exemplo em `auth.http`) e cole manualmente no campo `@token` dos arquivos de teste.
 
 ### Exemplo de request para cadastro de usuário
 ```http
