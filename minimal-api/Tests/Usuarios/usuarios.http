@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:5033/admin
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIlBlcmZpbCI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3NTU5ODIzNTV9.gcA08Dc2dyLvlxQRrP0uJVag_iHtJJNoA2XS74VOk8M
+
+### Listar todos os usuários
+GET {{baseUrl}}/obterTodosUsuarios/?pagina=1
+Authorization: Bearer {{token}}
+
+### Buscar usuário por email
+GET {{baseUrl}}/obterUsuarioPorEmail/editor@editor.com
+Authorization: Bearer {{token}}
+
+### Buscar usuário por id
+GET {{baseUrl}}/obterUsuarioPorId/1
+Authorization: Bearer {{token}}
+
+### Cadastrar novo usuário
+POST {{baseUrl}}/incluirUsuario
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Email": "novo@editor.com",
+  "Senha": "123",
+  "Perfil": 1
+}
+
+### Atualizar usuário
+PUT  {{baseUrl}}/atualizarUsuario/novo@editor.com
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Email": "novo@editor.com",
+  "Senha": "senhatrocada",
+  "Perfil": 1
+}
+
+### Excluir usuário
+DELETE  {{baseUrl}}/excluirUsuario/novo@editor.com
+Content-Type: application/json
+Authorization: Bearer {{token}}

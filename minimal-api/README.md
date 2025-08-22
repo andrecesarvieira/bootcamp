@@ -46,7 +46,7 @@ Este projeto é uma Minimal API desenvolvida em .NET 9, com autenticação JWT, 
 	```
 
 5. **Acessar o Swagger:**
-	Abra `http://localhost:5000/swagger` no navegador para testar os endpoints.
+	Abra `http://localhost:5033/swagger` no navegador para testar os endpoints.
 
 ## Controle de Roles
 - O token JWT inclui a role do usuário.

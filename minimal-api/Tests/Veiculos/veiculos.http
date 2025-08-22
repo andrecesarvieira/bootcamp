@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:5033/veiculos
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImVkaXRvckBlZGl0b3IuY29tIiwiUGVyZmlsIjoiRWRpdG9yIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiRWRpdG9yIiwiZXhwIjoxNzU1OTgzNTg3fQ.o2BoyipIjXSHRbxLc6cY6GrxD0OE6MuIvVmrfqy1pTc
+
+### Listar todos os veículos
+GET {{baseUrl}}/obterTodos/?pagina=1
+Authorization: Bearer {{token}}
+
+### Buscar veículos por id
+GET {{baseUrl}}/obterPorId/3
+Authorization: Bearer {{token}}
+
+### Cadastrar veículo
+POST {{baseUrl}}/incluir
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Nome": "Fusca",
+  "Marca": "VW",
+  "Ano": 1980
+}
+
+### Atualizar veículo
+PUT  {{baseUrl}}/atualizar/7
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Nome": "Bettle",
+  "Marca": "VW",
+  "Ano": 1980
+}
+
+### Excluir veículo
+DELETE  {{baseUrl}}/excluir/6
+Content-Type: application/json
+Authorization: Bearer {{token}}

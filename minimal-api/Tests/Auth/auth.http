@@ -1,0 +1,14 @@
+@baseUrl = http://localhost:5033
+
+### Login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+ {
+   "username": "editor@editor.com",
+   "password": "123456"
+ }
+
+  #  "username": "admin@admin.com",
+  #  "password": "senha123"
+
