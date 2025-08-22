@@ -1,4 +1,4 @@
-namespace MinimalApi.Dominio.ModelViews
+namespace MinimalApi.ViewModels
 {
     public struct Home
     {

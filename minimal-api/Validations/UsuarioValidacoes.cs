@@ -1,11 +1,11 @@
-using MinimalApi.Dominio.DTOs;
-using MinimalApi.Dominio.ModelViews;
+using MinimalApi.Dtos;
+using MinimalApi.ViewModels;
 
-namespace MinimalApi.Dominio.Validacoes
+namespace MinimalApi.Validations
 {
     public class UsuarioValidacoes
     {
-        public ErrosDeValidacao ValidaDTO(UsuarioDTO usuarioDTO)
+        public ErrosDeValidacao ValidaDTO(UsuarioDto usuarioDTO)
         {
             ErrosDeValidacao validacao = new()
             {

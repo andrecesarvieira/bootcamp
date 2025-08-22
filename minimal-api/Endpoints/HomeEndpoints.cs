@@ -1,4 +1,4 @@
-using MinimalApi.Dominio.ModelViews;
+using MinimalApi.ViewModels;
 
 namespace MinimalApi.Endpoints
 {

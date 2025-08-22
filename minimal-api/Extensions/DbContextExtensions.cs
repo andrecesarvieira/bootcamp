@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MinimalApi.Infraestrutura.Db;
+using MinimalApi.Infrastructure.Data;
 
 namespace MinimalApi.Extensions
 {

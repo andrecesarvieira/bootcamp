@@ -1,8 +1,8 @@
 using System.Text;
-using MinimalApi.Dominio.Servicos;
 using MinimalApi.Endpoints;
 using MinimalApi.Extensions;
-using MinimalApi.Infraestrutura.Interfaces;
+using MinimalApi.Infrastructure.Interfaces;
+using MinimalApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

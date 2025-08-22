@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using MinimalApi.Dominio.DTOs;
-using MinimalApi.Dominio.Entidades;
 using MinimalApi.Dominio.Validacoes;
-using MinimalApi.Infraestrutura.Interfaces;
+using MinimalApi.Dtos;
+using MinimalApi.Entities;
+using MinimalApi.Infrastructure.Interfaces;
 
 namespace MinimalApi.Endpoints
 {
@@ -11,7 +11,7 @@ namespace MinimalApi.Endpoints
         public static void MapVeiculoEndpoints(this IEndpointRouteBuilder app)
         {
             //Rota incluir veiculos
-            app.MapPost("/veiculos/incluir", ([FromBody] VeiculoDTO veiculoDTO, IVeiculoServico veiculoServico) =>
+            app.MapPost("/veiculos/incluir", ([FromBody] VeiculoDto veiculoDTO, IVeiculoServico veiculoServico) =>
             {
                 var resultado = new VeiculoValidacoes().ValidaDTO(veiculoDTO);
 
@@ -30,7 +30,7 @@ namespace MinimalApi.Endpoints
             }).WithTags("Veiculos").RequireAuthorization();
 
             //Rota atualizar veiculo
-            app.MapPut("/veiculos/atualizar/{id}", ([FromRoute] int id, VeiculoDTO veiculoDTO,IVeiculoServico veiculoServico) =>
+            app.MapPut("/veiculos/atualizar/{id}", ([FromRoute] int id, VeiculoDto veiculoDTO,IVeiculoServico veiculoServico) =>
             {
                 Veiculo? veiculo = veiculoServico.ObterVeiculoPorId(id);
 

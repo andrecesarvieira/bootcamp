@@ -1,12 +1,12 @@
-using MinimalApi.Dominio.DTOs;
-using MinimalApi.Dominio.Entidades;
+using MinimalApi.Dtos;
+using MinimalApi.Entities;
 
-namespace MinimalApi.Infraestrutura.Interfaces
+namespace MinimalApi.Infrastructure.Interfaces
 {
     public interface IUsuarioServico
     {
         //Método para efetuar o login
-        Usuario? Login(LoginDTO loginDTO);
+        Usuario? Login(LoginDto loginDTO);
 
         //Método para incluir um novo usuário
         bool IncluirUsuario(Usuario usuario);

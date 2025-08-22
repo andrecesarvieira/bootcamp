@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using MinimalApi.Dominio.DTOs;
+using MinimalApi.Auth;
 using MinimalApi.Dominio.ModelViews;
-using MinimalApi.Dominio.Token;
-using MinimalApi.Infraestrutura.Interfaces;
+using MinimalApi.Dtos;
+using MinimalApi.Infrastructure.Interfaces;
 
 namespace MinimalApi.Endpoints
 {
@@ -10,7 +10,7 @@ namespace MinimalApi.Endpoints
 	{
 		public static void MapLoginEndpoints(this IEndpointRouteBuilder app, byte[] jwtKey)
 		{
-			app.MapPost("/login", ([FromBody] LoginDTO loginDTO, IUsuarioServico usuarioServico) =>
+			app.MapPost("/login", ([FromBody] LoginDto loginDTO, IUsuarioServico usuarioServico) =>
 			{
 				TokenJwt token = new();
 				var usuarioLogin = usuarioServico.Login(loginDTO);

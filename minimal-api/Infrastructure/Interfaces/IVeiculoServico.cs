@@ -1,6 +1,6 @@
-using MinimalApi.Dominio.Entidades;
+using MinimalApi.Entities;
 
-namespace MinimalApi.Infraestrutura.Interfaces
+namespace MinimalApi.Infrastructure.Interfaces
 {
     public interface IVeiculoServico
     {

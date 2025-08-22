@@ -1,15 +1,15 @@
-using MinimalApi.Dominio.DTOs;
-using MinimalApi.Dominio.Entidades;
-using MinimalApi.Infraestrutura.Db;
-using MinimalApi.Infraestrutura.Interfaces;
+using MinimalApi.Dtos;
+using MinimalApi.Entities;
+using MinimalApi.Infrastructure.Data;
+using MinimalApi.Infrastructure.Interfaces;
 
-namespace MinimalApi.Dominio.Servicos
+namespace MinimalApi.Services
 {
     public class UsuarioServico(DbContexto contexto) : IUsuarioServico
     {
         private readonly DbContexto _contexto = contexto;
 
-        public Usuario? Login(LoginDTO loginDTO)
+        public Usuario? Login(LoginDto loginDTO)
         {
             var usuario = _contexto.Usuarios
                 .Where(a => a.Email == loginDTO.Username && a.Senha == loginDTO.Password)

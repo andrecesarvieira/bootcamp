@@ -2,9 +2,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using MinimalApi.Dominio.Entidades;
+using MinimalApi.Entities;
 
-namespace MinimalApi.Dominio.Token
+namespace MinimalApi.Auth
 {
     public class TokenJwt
     {

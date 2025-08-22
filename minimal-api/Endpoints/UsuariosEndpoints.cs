@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using MinimalApi.Dominio.DTOs;
-using MinimalApi.Dominio.Entidades;
-using MinimalApi.Dominio.ModelViews;
 using MinimalApi.Dominio.Validacoes;
-using MinimalApi.Infraestrutura.Interfaces;
+using MinimalApi.Dtos;
+using MinimalApi.Entities;
+using MinimalApi.Infrastructure.Interfaces;
+using MinimalApi.ViewModels;
 
 namespace MinimalApi.Endpoints
 {
@@ -12,7 +12,7 @@ namespace MinimalApi.Endpoints
         public static void MapUsuarioEndpoints(this IEndpointRouteBuilder app)
         {
             //Rota incluir usuario
-            app.MapPost("/admin/incluirUsuario", ([FromBody] UsuarioDTO usuarioDTO, IUsuarioServico usuarioServico) =>
+            app.MapPost("/admin/incluirUsuario", ([FromBody] UsuarioDto usuarioDTO, IUsuarioServico usuarioServico) =>
             {
                 //Validar dados preenchidos
                 ErrosDeValidacao resultado = new UsuarioValidacoes().ValidaDTO(usuarioDTO);
@@ -38,7 +38,7 @@ namespace MinimalApi.Endpoints
             }).WithTags("Administrador").RequireAuthorization();
 
             //Rota atualizar usuario
-            app.MapPut("/admin/atualizarUsuario/{email}", ([FromRoute] string email, UsuarioDTO usuarioDTO, IUsuarioServico usuarioServico) =>
+            app.MapPut("/admin/atualizarUsuario/{email}", ([FromRoute] string email, UsuarioDto usuarioDTO, IUsuarioServico usuarioServico) =>
             {
                 Usuario? usuario = usuarioServico.ObterUsuarioPorEmail(email);
                 if (usuario == null)
