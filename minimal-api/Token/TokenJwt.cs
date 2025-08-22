@@ -16,7 +16,7 @@ namespace MinimalApi.Dominio.Token
             {
                 new Claim("Email", usuario.Email),
                 new Claim("Perfil", usuario.Perfil),
-                new Claim("Expira", DateTime.Now.AddDays(1).ToString("yyyy-MM-ddTHH:mm:ss"))
+                new Claim(ClaimTypes.Role, usuario.Perfil)
             };
 
             SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(key)));
@@ -25,7 +25,8 @@ namespace MinimalApi.Dominio.Token
             JwtSecurityToken token = new
             (
                 claims: claims,
-                signingCredentials: credentials
+                signingCredentials: credentials,
+                expires: DateTime.Now.AddDays(1)
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
