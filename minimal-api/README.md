@@ -1,7 +1,6 @@
-Projeto de minimal-api
  # Minimal API com Controle de Usuários e Roles
 
-Este projeto é uma API minimalista desenvolvida em .NET 9, com autenticação JWT, controle de usuários, perfis (roles) e validações. Ideal para estudos e como base para aplicações REST seguras e modernas.
+Este projeto é uma Minimal API desenvolvida em .NET 9, com autenticação JWT, controle de usuários, perfis (roles) e validações. Ideal para estudos e como base para aplicações REST seguras e modernas.
 
 ## Funcionalidades
 - Autenticação via JWT
