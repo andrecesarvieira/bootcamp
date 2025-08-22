@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MinimalApi.Dominio.Validacoes;
+using MinimalApi.Validations;
 using MinimalApi.Dtos;
 using MinimalApi.Entities;
 using MinimalApi.Infrastructure.Interfaces;
@@ -27,7 +27,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.Created($"/veiculo/{veiculo.Id}", veiculo);
                 
-            }).WithTags("Veiculos").RequireAuthorization();
+            }).WithTags("Veiculos").RequireAuthorization("Editor");
 
             //Rota atualizar veiculo
             app.MapPut("/veiculos/atualizar/{id}", ([FromRoute] int id, VeiculoDto veiculoDTO,IVeiculoServico veiculoServico) =>
@@ -51,7 +51,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.Ok(veiculo);
 
-            }).WithTags("Veiculos").RequireAuthorization();
+            }).WithTags("Veiculos").RequireAuthorization("Editor");
 
             //Rota excluir veiculo
             app.MapDelete("/veiculos/excluir/{id}", ([FromRoute] int id, IVeiculoServico veiculoServico) =>
@@ -65,7 +65,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.NoContent();
 
-            }).WithTags("Veiculos").RequireAuthorization();
+            }).WithTags("Veiculos").RequireAuthorization("Editor");
 
             //Rota buscar veiculos por Id
             app.MapGet("/veiculos/obterPorId/{id}", ([FromRoute] int id, IVeiculoServico veiculoServico) =>
@@ -74,7 +74,7 @@ namespace MinimalApi.Endpoints
 
                 return veiculo != null ? Results.Ok(veiculo) : Results.NotFound();
                 
-            }).WithTags("Veiculos").RequireAuthorization();
+            }).WithTags("Veiculos").RequireAuthorization("Editor");
 
             //Rota buscar todos os veiculos
             app.MapGet("/veiculos/obterTodos", ([FromQuery] int pagina, IVeiculoServico veiculoServico) =>
@@ -83,7 +83,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.Ok(veiculos);
 
-            }).WithTags("Veiculos").RequireAuthorization();            
+            }).WithTags("Veiculos").RequireAuthorization("Editor");            
         }
     }
 }

@@ -9,7 +9,6 @@ namespace MinimalApi.Dtos
     public enum PerfilEnum
     {
         Admin,
-        Editor,
-        Usuario
+        Editor
     }
 }

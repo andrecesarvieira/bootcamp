@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MinimalApi.Dominio.Validacoes;
+using MinimalApi.Validations;
 using MinimalApi.Dtos;
 using MinimalApi.Entities;
 using MinimalApi.Infrastructure.Interfaces;
@@ -35,7 +35,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.Created($"/admin/usuario/{novoUsuario.Id}", novoUsuario);
 
-            }).WithTags("Administrador").RequireAuthorization();
+            }).WithTags("Administrador").RequireAuthorization("Admin");
 
             //Rota atualizar usuario
             app.MapPut("/admin/atualizarUsuario/{email}", ([FromRoute] string email, UsuarioDto usuarioDTO, IUsuarioServico usuarioServico) =>
@@ -57,7 +57,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.Ok(usuario);
 
-            }).WithTags("Administrador").RequireAuthorization();
+            }).WithTags("Administrador").RequireAuthorization("Admin");
 
             //Rota excluir usuario
             app.MapDelete("/admin/excluirUsuario/{email}", ([FromRoute] string email, IUsuarioServico usuarioServico) =>
@@ -72,7 +72,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.NoContent();
 
-            }).WithTags("Administrador").RequireAuthorization();
+            }).WithTags("Administrador").RequireAuthorization("Admin");
 
             //Rota obter usuario por email
             app.MapGet("/admin/obterUsuarioPorEmail/{email}", ([FromRoute] string email, IUsuarioServico usuarioServico) =>
@@ -81,7 +81,7 @@ namespace MinimalApi.Endpoints
 
                 return usuario != null ? Results.Ok(usuario) : Results.NotFound();
 
-            }).WithTags("Administrador").RequireAuthorization();
+            }).WithTags("Administrador").RequireAuthorization("Admin");
 
             //Rota buscar usuario por Id
             app.MapGet("/admin/obterUsuarioPorId/{id}", ([FromRoute] int id, IUsuarioServico usuarioServico) =>
@@ -90,7 +90,7 @@ namespace MinimalApi.Endpoints
 
                 return usuario != null ? Results.Ok(usuario) : Results.NotFound();
 
-            }).WithTags("Administrador").RequireAuthorization();
+            }).WithTags("Administrador").RequireAuthorization("Admin");
 
             //Rota buscar todos os usuarios
             app.MapGet("/admin/obterTodosUsuarios", ([FromQuery] int pagina, IUsuarioServico usuarioServico) =>
@@ -99,7 +99,7 @@ namespace MinimalApi.Endpoints
 
                 return Results.Ok(usuarios);
 
-            }).WithTags("Administrador").RequireAuthorization();            
+            }).WithTags("Administrador").RequireAuthorization("Admin");            
         }
     }
 }

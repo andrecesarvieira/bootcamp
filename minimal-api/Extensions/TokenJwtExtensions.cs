@@ -9,9 +9,9 @@ namespace MinimalApi.Extensions
         public static void AddCustomTokenJwt(this IServiceCollection services, IConfiguration configuration, byte[] jwtKey)
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(op =>
+                .AddJwtBearer(options =>
                 {
-                    op.TokenValidationParameters = new TokenValidationParameters
+                    options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateLifetime = true,
                         IssuerSigningKey = new SymmetricSecurityKey(jwtKey),
@@ -20,7 +20,11 @@ namespace MinimalApi.Extensions
                     };
                 });
 
-            services.AddAuthorization();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("Editor", policy => policy.RequireRole("Editor"));
+            });
         }
     }
 }

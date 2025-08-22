@@ -8,7 +8,7 @@ namespace MinimalApi.Extensions
         {
             services.AddEndpointsApiExplorer();
 
-            services.AddSwaggerGen(op =>
+            services.AddSwaggerGen(options =>
             {
                 OpenApiSecurityScheme securityScheme = new()
                 {
@@ -25,8 +25,8 @@ namespace MinimalApi.Extensions
                     }
                 };
                 
-                op.AddSecurityDefinition("Bearer", securityScheme);
-                op.AddSecurityRequirement(new OpenApiSecurityRequirement
+                options.AddSecurityDefinition("Bearer", securityScheme);
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     { securityScheme, Array.Empty<string>() }
                 });

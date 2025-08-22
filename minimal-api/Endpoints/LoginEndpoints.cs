@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Auth;
-using MinimalApi.Dominio.ModelViews;
+using MinimalApi.ViewModels;
 using MinimalApi.Dtos;
 using MinimalApi.Infrastructure.Interfaces;
 
