@@ -72,8 +72,8 @@ azure-speech-language-lab/
 
 ## **📎 Entrega do Projeto**
 
-- **Repositório público:** [SEU LINK AQUI]
-- **Descrição sugerida para entrega na DIO:**
+- **Repositório público:** [https://github.com/andrecesarvieira/bootcamp/tree/main/azure-speech-language-lab-desafio]
+- **Descrição:**
 > "Repositório contendo documentação, insights técnicos e capturas de tela sobre o uso do Azure Speech Studio e Language Studio para análise de fala e linguagem natural."
 
 ---
