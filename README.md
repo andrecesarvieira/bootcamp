@@ -7,6 +7,7 @@
 
 - **dio-lab-open-source/**: Comunidade, contribuições e materiais colaborativos.
 - **minimal-api/**: Projeto de Minimal API em .NET.
-- **trilha-net-explorando-desafio/**: Desafio prático de hospedagem em .NET.
-- **trilha-net-fundamentos-desafio/**: Desafio prático de fundamentos em .NET.
-- **trilha-net-poo-desafio/**: Desafio prático de Programação Orientada a Objetos em .NET.
+- **trilha-net-explorando-desafio/**: Sistema de hospedagem de hotel em .NET.
+- **trilha-net-fundamentos-desafio/**: Sistema de estacionamento em .NET.
+- **trilha-net-poo-desafio/**: Sistema de abstração de celular com POO em .NET.
+- **trilha-net-api-desafio/**: API para organização de tarefas em .NET.
